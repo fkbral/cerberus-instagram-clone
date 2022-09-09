@@ -1,9 +1,15 @@
-import { StyleSheet, Text, View } from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
+import { fakePosts } from "../../../__test__/data/posts";
+import { PostDetail } from "../../components/PostDetail";
 
 export const Feed = () => {
+  const feedPosts = fakePosts;
   return (
     <View style={styles.container}>
-      <Text>Feed</Text>
+      <FlatList
+        data={feedPosts}
+        renderItem={({ item }) => <PostDetail post={item} />}
+      />
     </View>
   );
 };
